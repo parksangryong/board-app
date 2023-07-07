@@ -92,20 +92,20 @@ if(board[0]){
         return(
             <div id='post-item'>
                 <div className='form'>
-                    <div className='form-id'>
-                        <span>id: </span> <span className='inspan'>{board[0].id}</span>
+                <div className='form-id'>
+                        <span>id: </span> <input type='text' defaultValue={board[0].id} readOnly />
                     </div>
                     <div className='form-title'>
-                        <span>title: </span> <span className='inspan'>{board[0].title}</span>
+                        <span>title: </span> <input type='text' defaultValue={board[0].title}  readOnly />
                     </div>
                     <div className='form-content'>
-                        <span>content: </span> <span className='inspan cont'>{board[0].content}</span>
+                        <span>content: </span> <textarea rows={5} defaultValue={board[0].content} readOnly></textarea>
                     </div>
                     <div className='form-user'>
-                        <span>user_id: </span> <span className='inspan'>{board[0].user_id}</span>
+                        <span>user_id: </span> <input type='text' defaultValue={board[0].user_id} readOnly />
                     </div>
                     <div className='form-date'>
-                        <span>date: </span> <span className='inspan'>{board[0].w_date}</span>
+                        <span>date: </span> <input type='text' defaultValue={board[0].w_date} readOnly />
                     </div>
                     <button className='form-btn' onClick={modify}>수정</button>
                 </div>

@@ -1,7 +1,7 @@
 #post-item{
     width: 90%;
     height: 75%;
-    background-color: rgb(216, 255, 157);
+    background-color: rgb(204, 255, 127);
     margin-left: 5%;
     padding-top: 5%;
 }
@@ -16,16 +16,6 @@
     width: 100%;
     height: 60px;
     text-align: center;
-}
-
-
-.inspan{
-    width: 50% !important;
-    float: right !important;
-}
-.cont{
-    overflow-y: scroll;
-    height: 130px;
 }
 .form-id span{
     width: 30%;
@@ -97,7 +87,7 @@
     position: absolute;
 }
 
-input:read-only{
+input:read-only, textarea:read-only{
     background-color: rgb(196, 241, 226);
     border: 1px solid black;
 }
