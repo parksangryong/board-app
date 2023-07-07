@@ -1,0 +1,96 @@
+#login{
+    width: 80%;
+    height: 550px;
+    background-color: skyblue;
+    margin-left: 10%;
+    position: relative;
+}
+
+.login-div{
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    background-color: aliceblue;
+    top: 10%;
+    left: 25%;
+}
+
+.login-div h2{
+    line-height: 100px;
+    text-align: center;
+}
+
+.login-id, .login-pass{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.login-id span, .login-pass span{
+    float: left;
+    margin-left: 20%;
+}
+
+.login-id input, .login-pass input{
+    float: right;
+    margin-right: 20%;
+}
+
+.login-btn{
+    width: 100%;
+    height: 60px;
+}
+
+.login-btn button{
+    margin-top: 5%;
+    margin-left: 80%;
+    background-color: greenyellow;
+    border: 1px solid green;
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn button:hover{
+    opacity: 0.7;
+}
+
+.login-div hr{
+    margin-top: 40px;
+}
+
+.login-txt{
+    width: 100%;
+    line-height: 80px;
+    text-align: center;
+    color: red;
+}
+
+@media (max-width: 800px) {
+    .login-div{
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background-color: aliceblue;
+        top: 10%;
+        left: 10%;
+    }
+    
+    .login-btn button{
+        margin-top: 5%;
+        margin-left: 40%;
+    }
+
+    .login-id span, .login-pass span{
+        margin-left: 5%;
+        width: 80px;
+        font-size: 0.8em;
+        line-height: 19px;
+    }
+    
+    .login-id input, .login-pass input{
+        margin-right: 5%;
+        width: 120px;
+        font-size: 0.8em;
+    }
+  }
