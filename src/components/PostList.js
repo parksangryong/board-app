@@ -6,7 +6,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import Pagenation from './Pagenation'
 
-function PostList (props){
+function PostList (){
     const [board, setBoard] = useState([])
     const [allboard, setAllboard] = useState([])
     const [page, setPage] = useState(6)
@@ -14,7 +14,8 @@ function PostList (props){
 
     useEffect(
         () => {
-            getBoard();
+            getBoard()
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [current]
     )
 
@@ -23,6 +24,7 @@ function PostList (props){
         //console.log(result.data);
 
         setAllboard(result.data);
+        setPage(6)
 
         let postObj = [];
 
@@ -33,16 +35,16 @@ function PostList (props){
                     w_date : dayjs(result.data[i].w_date).format('YYYY-MM-DD')})
             }
         }
-
         setBoard(postObj)
-    }
+    } 
 
     if(board){
         var result = board.map(
             (data) => (<Post key={data.id} id={data.id} title={data.title} content={data.content} user_id={data.user_id} w_date={data.w_date} />)
         )
-    }else{
-        var result = 'not data'
+    }
+    else{
+        result = 'not data'
     }
 
     const movePage = (index) => {
