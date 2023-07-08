@@ -41,6 +41,12 @@
     color: brown !important;
 }
 
+#hello{
+    position: absolute;
+    top: 40px;
+    right: 40%;
+}
+
 @media (max-width: 800px) {
     #header .movelog{
         width: 45%;

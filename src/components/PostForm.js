@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react'
 import '../css/PostForm.css'
 import axios from 'axios'
 import dayjs from 'dayjs'
+import { useDispatch, useSelector } from 'react-redux';
 
 function PostForm (){
+    const dispatch = useDispatch()
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [userid, setUserid] = useState('')
+    const [userid, setUserid] = useState(useSelector((state) => state.id))
     const [date, setDate] = useState(dayjs(new Date()).format('YYYY-MM-DD'))
 
     useEffect(
@@ -48,7 +50,7 @@ function PostForm (){
                     <span>content: </span> <textarea rows={5} onChange={(e) => setContent(e.target.value)}></textarea>
                 </div>
                 <div className='form-user'>
-                    <span>user_id: </span> <input type='text' onChange={(e) => setUserid(e.target.value)} />
+                    <span>user_id: </span> <input type='text' value={userid} readOnly />
                 </div>
                 <div className='form-date'>
                     <span>date: </span> <input type='text' value={date} readOnly />

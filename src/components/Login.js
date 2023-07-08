@@ -1,13 +1,58 @@
 //로그인 컴포넌트(-App)
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../css/Login.css'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { login} from '../_reducer/action'
 
 function Login (props){
+    const dispatch = useDispatch();
+    const isLoggedIn = useSelector((state) => state.isLoggedIn);
+    const [ids, setIds] = useState([])
     const [id, setId] = useState('')
     const [password, setPassword] = useState('')
+    const [msg, setMsg] = useState('') 
 
-    const submitbtn = () => {
-        
+    useEffect(() => {
+        getIds()
+        //console.log(isLoggedIn)
+    }, [msg])
+
+    const getIds = async() => {
+        const result = await axios.get('/id')
+        setIds(result.data)
+        //console.log(ids)
+    }
+
+    const submitbtn = async () => {
+        if (!id) {
+            return alert("ID를 입력하세요.");
+          }
+          else if (!password) {
+            return alert("Password를 입력하세요.");
+          }
+          else{
+            try {
+                const result = await axios.post('/login', { id, password });
+                console.log(result.data)
+                if (result.data.success) {
+                    setMsg('로그인 성공');
+                    const names = ids.filter(
+                        (data) => (data.id === id)
+                    )
+                    const namex = names[0].username
+                    const idx = names[0].id
+                    const passwordx = names[0].password
+
+                    dispatch(login(namex, idx, passwordx));
+                    window.location.href = '/'
+                } else {
+                    setMsg(result.data.message);
+                }
+              } catch (error) {
+                console.error(error);
+              }
+          }
     }
 
     return(
@@ -24,7 +69,7 @@ function Login (props){
                 <button onClick={submitbtn} >로그인</button>
                 </div>
                 <hr />
-                <div className='login-txt'>로그인을 해주십시오.</div>
+                {msg && <div className='login-txt'>{msg}</div>}
             </div>
         </div>
     )

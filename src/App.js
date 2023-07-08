@@ -7,18 +7,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NewLogin from './components/NewLogin';
 import LogModi from './components/LogModi';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
-  const [logon, setLogon] = useState(false)
- 
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+
+  //console.log(isLoggedIn)
 
   return (
     <div id="App">
-      <Header logon={logon} />
+      <Header logon={isLoggedIn} />
       <BrowserRouter>
         <Routes>
-          <Route path='/*' element={<Board logon={logon} />} />
+          <Route path='/*' element={<Board logon={isLoggedIn} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/newlogin' element={<NewLogin />} />
           <Route path='/logmodify' element={<LogModi />} />

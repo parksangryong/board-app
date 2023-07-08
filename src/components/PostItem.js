@@ -4,12 +4,15 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import '../css/PostItem.css'
 import queryString from 'query-string'
+import { useDispatch, useSelector } from 'react-redux';
 
 function PostItem (){
+    const dispatch = useDispatch()
     const [board, setBoard] = useState([])
     const [edit, setEdit] = useState(false)
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [userid, setUserid] = useState(useSelector((state) => state.id))
 
     useEffect(
         () => {
@@ -37,7 +40,7 @@ function PostItem (){
 
     const modify = async () => {
 
-        if(edit){
+        if(edit && board[0].user_id === userid){
             const queryObj =  queryString.parse(window.location.search);
             const id = queryObj.query
 
@@ -48,6 +51,10 @@ function PostItem (){
 
             const result = await axios.put('/board', boardObj)
             console.log(result.data);
+            
+        }else if(board[0].user_id !== userid){
+            alert('다른 사용자입니다.')
+            return 
         }
 
         setEdit(!edit)

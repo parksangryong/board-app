@@ -1,14 +1,26 @@
 //회원가입(-App)
 import '../css/NewLogin.css'
 import { useState } from 'react';
+import axios from 'axios';
 
 function NewLogin (){
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
 
-    const submitbtn = () => {
+    const submitbtn = async () => {
+        //console.log(id, password, name)
+        const loginObj = {id: id, username: name, password: password}
+
+        try{
+            const result = await axios.post('/id', loginObj)
+            console.log(result)
+        }
+        catch(error){
+            alert('id')
+        }
         
+        window.location.href = '/'
     }
 
     return(
