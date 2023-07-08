@@ -4,12 +4,23 @@ import {Routes, Route } from 'react-router-dom';
 import PostList from './PostList'
 import PostForm from './PostForm';
 import PostItem from './PostItem';
+import {useSelector } from 'react-redux';
+import { useState } from 'react';
 
-function Board (props){
+function Board (){
+    const [id, setId] = useState(useSelector((state) => state.id))
+
+    const addBoard = () => {   
+        if(id){
+            window.location.href = '/postform'
+        }else{
+            alert('로그인 해주세요')
+        }
+    }
 
     return(
         <div id='board'>
-            <button onClick={() => window.location.href = '/postform'}>글쓰기</button>
+            <button onClick={addBoard}>글쓰기</button>
             <div className='board-title'>전체 게시글</div>
                 <Routes>
                     <Route path='/' element={<PostList />} />

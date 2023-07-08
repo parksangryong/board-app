@@ -1,18 +1,16 @@
-export const login = (name, id, password) => {
+export const login = (name, id) => {
     return (dispatch) => {
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: {
           username: name,
           id : id,
-          password, password,
           isLoggedIn: true
         }
       });
       localStorage.setItem('isLoggedIn', true);
       localStorage.setItem('username', name);
       localStorage.setItem('id', id);
-      localStorage.setItem('password', password);
   
       // 로그인 요청이 실패하면 실패 메시지를 Redux Store에 저장합니다.
       // dispatch({
@@ -29,7 +27,6 @@ export const login = (name, id, password) => {
     localStorage.setItem('isLoggedIn', false);
     localStorage.removeItem('username');
     localStorage.removeItem('id');
-    localStorage.removeItem('password');
     return {
       type: 'LOGOUT'
     };

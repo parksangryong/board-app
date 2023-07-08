@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react'
 import '../css/PostForm.css'
 import axios from 'axios'
 import dayjs from 'dayjs'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function PostForm (){
-    const dispatch = useDispatch()
     const [id, setId] = useState('')
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -23,7 +22,11 @@ function PostForm (){
         const result = await axios.get('/board');
         console.log(result.data);
 
-        setId(result.data[0].id + 1)
+        if(result.data.length == 0){
+            setId(1)
+        }else{
+            setId(result.data[0].id + 1)
+        }
     }
 
     const addBoard = async() => {

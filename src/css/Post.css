@@ -4,6 +4,7 @@
     height: 60px;
     margin-top: 5px;
     cursor: pointer;
+    font-size: 0.9em;
 }
 
 #post:hover{

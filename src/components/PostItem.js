@@ -4,10 +4,9 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import '../css/PostItem.css'
 import queryString from 'query-string'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function PostItem (){
-    const dispatch = useDispatch()
     const [board, setBoard] = useState([])
     const [edit, setEdit] = useState(false)
     const [title, setTitle] = useState('')
@@ -22,7 +21,6 @@ function PostItem (){
 
             getBoardItem(id);
             //console.log(board)
-
         }, [board]
     )
 

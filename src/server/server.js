@@ -39,14 +39,14 @@ app.post('/id', (req,res) => {
     const id = req.body.id
     const username = req.body.username
     const password = req.body.password
-
-    db.query(`insert into users values ('${id}', '${username}', '${password}')`, (err,data) => {
-        if(!err){
-            console.log("post 성공")
-        }else{
-            res.send(err)
-        }
-    })
+  
+    db.query(`insert into users values ('${id}', '${username}', '${password}')`, (err, results) => {
+      if (err) {
+        res.json({ success: true, message: '중복됩니다.' });
+      } else if(!err) {
+        res.json({ success: false, message: '회원가입 성공' });
+      }
+    });
 }) // 회원가입
 
 app.put('/id', (req,res)=>{

@@ -2,12 +2,11 @@
 import { useState, useEffect } from 'react'
 import '../css/Login.css'
 import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login} from '../_reducer/action'
 
-function Login (props){
+function Login (){
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector((state) => state.isLoggedIn);
     const [ids, setIds] = useState([])
     const [id, setId] = useState('')
     const [password, setPassword] = useState('')
@@ -42,9 +41,8 @@ function Login (props){
                     )
                     const namex = names[0].username
                     const idx = names[0].id
-                    const passwordx = names[0].password
 
-                    dispatch(login(namex, idx, passwordx));
+                    dispatch(login(namex, idx));
                     window.location.href = '/'
                 } else {
                     setMsg(result.data.message);

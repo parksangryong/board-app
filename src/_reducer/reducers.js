@@ -1,7 +1,6 @@
 const initialState = {
     username: localStorage.getItem('username'),
     id: localStorage.getItem('id'),
-    password : localStorage.getItem('password'),
     isLoggedIn: localStorage.getItem('isLoggedIn') === 'true',
     error: ''
   };
@@ -14,7 +13,6 @@ const initialState = {
         return {
             username: '',
             id: '',
-            password : '',
             isLoggedIn: localStorage.getItem('isLoggedIn') === 'true',
             error: action.payload.error
         };
@@ -22,7 +20,6 @@ const initialState = {
         return {
             username: '',
             id: '',
-            password : '',
             isLoggedIn: localStorage.getItem('isLoggedIn') === 'true',
             error: ''
         }

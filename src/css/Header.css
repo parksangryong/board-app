@@ -44,7 +44,9 @@
 #hello{
     position: absolute;
     top: 40px;
-    right: 40%;
+    right: 35%;
+    font-size: 1.1em;
+    color: green;
 }
 
 @media (max-width: 800px) {
