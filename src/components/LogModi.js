@@ -19,7 +19,7 @@ function LogModi(){
             return alert("이름을 입력하세요.");
         }
         alert('다시 로그인해주세요')
-        window.location.href = '/board-app/'
+        window.location.href = '/'
         dispatch(logout())
 
         const changeObj = {id: id, username: name, password: password}
@@ -33,7 +33,7 @@ function LogModi(){
         }
 
         alert('회원이 삭제되었습니다')
-        window.location.href = '/board-app/'
+        window.location.href = '/'
         dispatch(logout())
 
         const result = await axios.delete('/id', {data : {id}})

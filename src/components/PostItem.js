@@ -42,7 +42,7 @@ function PostItem (){
             const queryObj =  queryString.parse(window.location.search);
             const id = queryObj.query
 
-            window.location.href = '/board-app/postitem?query=' + id
+            window.location.href = '/postitem?query=' + id
 
             const boardObj = {id : board[0].id, title: title, content: content}
             console.log(boardObj)

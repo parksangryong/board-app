@@ -18,7 +18,7 @@ function App() {
   return (
     <div id="App">
       <Header logon={isLoggedIn} />
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <Routes>
           <Route path='/*' element={<Board logon={isLoggedIn} />} />
           <Route path='/login' element={<Login />} />
