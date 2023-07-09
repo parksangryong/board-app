@@ -19,7 +19,11 @@ function Pagenation (props){
         for(var i=current-4; i<=current+4; i++){
             pages.push(i)
         }
-    }else{
+    }else if(current < 6 && endpage >= current+4){
+        for(var i=1; i<=current+4; i++){
+            pages.push(i)
+        }
+    }else if(endpage <= 8){
         for(var i=1; i<=endpage; i++){
             pages.push(i)
         }
