@@ -7,7 +7,7 @@
 }
 
 .pagenumber{
-    margin-right: 10%;
+    margin-right: 5%;
     cursor: pointer;
     font-weight: bold;
 }
@@ -27,12 +27,12 @@
 }
 
 #pagenation button:first-child{
-    margin-right: 7%;
+    margin-right: 3%;
 }
 
 #pagenation{
     position: relative;
-    margin-left: 5%;
+    margin-left: 0;
     margin-top: 15px;
     text-align: center;
 }
