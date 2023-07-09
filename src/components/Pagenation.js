@@ -14,8 +14,15 @@ function Pagenation (props){
     //console.log(page, current, all ,endpage)
 
     let pages = []
-    for(var i=1; i<=endpage; i++){
-        pages.push(i)
+
+    if(current >= 6 && endpage >= current+4){
+        for(var i=current-4; i<=current+4; i++){
+            pages.push(i)
+        }
+    }else{
+        for(var i=1; i<=endpage; i++){
+            pages.push(i)
+        }
     }
 
     const result = pages.map(
