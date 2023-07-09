@@ -32,7 +32,7 @@ function NewLogin (){
                 if (result.data.message === '회원가입 성공') {
                     setMsg('회원가입 성공입니다.');
                     dispatch(login(name, id));
-                    window.location.href = '/'
+                    window.location.href = '/board-app/'
                 } else {
                     setMsg(result.data.message);
                 }

@@ -43,7 +43,7 @@ function Login (){
                     const idx = names[0].id
 
                     dispatch(login(namex, idx));
-                    window.location.href = '/'
+                    window.location.href = '/board-app/'
                 } else {
                     setMsg(result.data.message);
                 }

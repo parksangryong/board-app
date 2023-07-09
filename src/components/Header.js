@@ -11,7 +11,7 @@ function Header (){
 
     const logoutid = () => {
         dispatch(logout());
-        window.location.href ='/'
+        window.location.href ='/board-app/'
       };
     
 
@@ -19,13 +19,13 @@ function Header (){
         return(
             <div id='header'>
                 <div className='logo'>
-                    <a href='/'><img src={logo} alt='logo' /></a>
+                    <a href='/board-app/'><img src={logo} alt='logo' /></a>
                 </div>
                 <div id='hello'>
                     {hname} 님 환영합니다
                 </div>
                 <div className='movelog'>
-                         <button onClick={() => window.location.href = '/logmodify'}>modify</button>
+                         <button onClick={() => window.location.href = '/board-app/logmodify'}>modify</button>
                         <button onClick={logoutid}>logout</button>
                 </div>
             </div>
@@ -38,8 +38,8 @@ function Header (){
                     <a href='/'><img src={logo} alt='logo' /></a>
                 </div>
                 <div className='movelog'>
-                        <button onClick={() => window.location.href = '/newlogin'}>new</button>
-                        <button onClick={() => window.location.href = '/login'}>login</button>
+                        <button onClick={() => window.location.href = '/board-app/newlogin'}>new</button>
+                        <button onClick={() => window.location.href = '/board-app/login'}>login</button>
                 </div>
             </div>
         )

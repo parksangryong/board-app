@@ -4,7 +4,7 @@ import '../css/Post.css'
 function Post (props){
     const moveitem = () => {
         const id = props.id
-        window.location.href = '/postitem?query=' + id
+        window.location.href = '/board-app/postitem?query=' + id
     }
 
     return(

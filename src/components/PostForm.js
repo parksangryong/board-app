@@ -30,7 +30,7 @@ function PostForm (){
     }
 
     const addBoard = async() => {
-        window.location.href = '/'
+        window.location.href = '/board-app/'
 
         const boardObj = ({id : id, title : title, content : content, user_id : userid, w_date : date})
 

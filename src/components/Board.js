@@ -12,7 +12,7 @@ function Board (){
 
     const addBoard = () => {   
         if(id){
-            window.location.href = '/postform'
+            window.location.href = '/board-app/postform'
         }else{
             alert('로그인 해주세요')
         }
