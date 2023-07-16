@@ -42,23 +42,28 @@ function Answer(props) {
   ));
 
   const addAnswer = async () => {
-    const postObj = {
-      id: id,
-      board_id: props.id,
-      date: date,
-      answer: answer,
-      name: userid,
-    };
+    if (userid) {
+      const postObj = {
+        id: id,
+        board_id: props.id,
+        date: date,
+        answer: answer,
+        name: userid,
+      };
 
-    //console.log(postObj);
+      //console.log(postObj);
 
-    const result = await axios.post(
-      `https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/answer`,
-      postObj
-    );
-    console.log(result);
+      const result = await axios.post(
+        `https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/answer`,
+        postObj
+      );
+      console.log(result);
 
-    setAnswer("");
+      setAnswer("");
+    } else {
+      alert("로그인해주세요");
+      return;
+    }
   };
 
   return (

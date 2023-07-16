@@ -39,3 +39,14 @@
   cursor: pointer;
   border-radius: 20%;
 }
+
+@media screen and (max-width: 550px) {
+  .answer-input input {
+    width: 70% !important;
+    font-size: 0.8em;
+  }
+  .answer-input div {
+    width: 20%;
+    font-size: 0.7em;
+  }
+}

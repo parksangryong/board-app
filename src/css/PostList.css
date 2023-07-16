@@ -32,7 +32,14 @@
 
 #pagenation {
   position: relative;
+  width: 100%;
   margin-left: 0;
   margin-top: 15px;
   text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  #pagenation button:last-child {
+    margin-left: 3%;
+  }
 }

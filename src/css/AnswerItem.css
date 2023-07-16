@@ -60,3 +60,22 @@
   text-align: left !important;
   border: none;
 }
+
+@media screen and (max-width: 550px) {
+  #answer-item div {
+    font-size: 0.6em;
+  }
+
+  .an-name {
+    width: 100%;
+  }
+  .an-date {
+    width: 60%;
+  }
+  .an-mo {
+    width: 20%;
+  }
+  .an-del {
+    width: 20%;
+  }
+}

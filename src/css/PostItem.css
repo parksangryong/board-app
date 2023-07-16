@@ -90,3 +90,35 @@
 #post-item .open-btn {
   position: absolute;
 }
+
+@media screen and (max-width: 730px) {
+  #post-item button {
+    width: 70px;
+    height: 70px;
+  }
+  #post-item .form {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .form-id span:first-child {
+    width: 100%;
+    line-height: 40px;
+    float: left;
+  }
+  .form-id span:last-child {
+    width: 100%;
+    line-height: 40px;
+    float: right;
+  }
+  .form-title span {
+    width: 20%;
+    float: left;
+  }
+  .form-title input {
+    width: 70%;
+    height: 30px;
+    margin-top: 10px;
+  }
+}

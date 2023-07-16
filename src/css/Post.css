@@ -1,36 +1,67 @@
-#post{
-    width: 90%;
-    margin-left: 5%;
-    height: 60px;
-    margin-top: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
+#post {
+  width: 90%;
+  margin-left: 5%;
+  height: 60px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
 }
 
-#post:hover{
-    font-weight: bold;
+#post:hover {
+  font-weight: bold;
 }
 
-#post div{
-    float: left;
-    text-align: center;
-    line-height: 60px;
-    font-size: 1.3em;
+#post div {
+  float: left;
+  text-align: center;
+  line-height: 60px;
+  font-size: 1.3em;
 }
 
-.post-id{
-    width: 10%;
-    background-color: rgb(206, 253, 237);
+.post-id {
+  width: 10%;
+  background-color: rgb(206, 253, 237);
 }
-.post-title{
-    width: 40%;
-    background-color: rgb(162, 255, 224);
+.post-title {
+  width: 40%;
+  background-color: rgb(162, 255, 224);
 }
-.post-userid{
-    width: 25%;
-    background-color: rgb(99, 255, 203);
+.post-userid {
+  width: 25%;
+  background-color: rgb(99, 255, 203);
 }
-.post-date{
-    width: 25%;
-    background-color: rgb(0, 255, 170);
+.post-date {
+  width: 25%;
+  background-color: rgb(0, 255, 170);
+}
+
+@media screen and (max-width: 730px) {
+  #post {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #post {
+    height: 100px;
+    font-size: 0.6em;
+  }
+  .post-id {
+    width: 30%;
+  }
+  .post-title {
+    width: 70%;
+  }
+  .post-userid {
+    width: 35%;
+    float: right !important;
+    line-height: 30px !important;
+    height: 30px;
+  }
+  .post-date {
+    width: 50%;
+    float: right !important;
+    line-height: 30px !important;
+    height: 30px;
+  }
 }
