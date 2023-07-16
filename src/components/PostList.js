@@ -28,7 +28,7 @@ function PostList() {
     //console.log(name);
     if (opt === "title" && search) {
       try {
-        //console.log(search);
+        console.log(search);
 
         let result = await axios.get(
           "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/title/" +
