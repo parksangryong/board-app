@@ -1,38 +1,38 @@
-#post-list{
-    width: 90%;
-    height: 80%;
-    background-color: rgb(204, 255, 127);
-    margin-left: 5%;
-    padding-top: 1%;
+#post-list {
+  width: 90%;
+  height: auto;
+  background-color: rgb(204, 255, 127);
+  margin-left: 5%;
+  padding-top: 1%;
 }
 
-.pagenumber{
-    margin-right: 5%;
-    cursor: pointer;
-    font-weight: bold;
+.pagenumber {
+  margin-right: 5%;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-#active{
-    color: red;
+#active {
+  color: red;
 }
 
-#pagenation button{
-    position: relative;
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 100%;
-    background-color: none;
-    top: 0;
+#pagenation button {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 100%;
+  background-color: none;
+  top: 0;
 }
 
-#pagenation button:first-child{
-    margin-right: 3%;
+#pagenation button:first-child {
+  margin-right: 3%;
 }
 
-#pagenation{
-    position: relative;
-    margin-left: 0;
-    margin-top: 15px;
-    text-align: center;
+#pagenation {
+  position: relative;
+  margin-left: 0;
+  margin-top: 15px;
+  text-align: center;
 }

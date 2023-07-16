@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import "../css/PostItem.css";
 import queryString from "query-string";
 import { useSelector } from "react-redux";
+import Answer from "./Answer";
 
 function PostItem() {
   const [board, setBoard] = useState([]);
@@ -16,10 +17,8 @@ function PostItem() {
   useEffect(() => {
     const queryObj = queryString.parse(window.location.search);
     const id = queryObj.query;
-    //console.log(id)
 
     getBoardItem(id);
-    //console.log(board)
   }, [board]);
 
   const getBoardItem = async (id) => {
@@ -81,8 +80,8 @@ function PostItem() {
         <div id="post-item">
           <div className="form">
             <div className="form-id">
-              <span>id: </span>{" "}
-              <input type="text" defaultValue={board[0].id} readOnly />
+              <span>user_id: &nbsp;{board[0].user_id} </span>
+              <span>date: &nbsp;{board[0].w_date}</span>
             </div>
             <div className="form-title">
               <span>title: </span>{" "}
@@ -93,21 +92,13 @@ function PostItem() {
               />
             </div>
             <div className="form-content">
-              <span>content: </span>{" "}
               <textarea
                 rows={5}
                 defaultValue={board[0].content}
                 onChange={(e) => setContent(e.target.value)}
               ></textarea>
             </div>
-            <div className="form-user">
-              <span>user_id: </span>{" "}
-              <input type="text" defaultValue={board[0].user_id} readOnly />
-            </div>
-            <div className="form-date">
-              <span>date: </span>{" "}
-              <input type="text" defaultValue={board[0].w_date} readOnly />
-            </div>
+
             <button className="form-btn" onClick={modify}>
               저장
             </button>
@@ -122,32 +113,29 @@ function PostItem() {
         <div id="post-item">
           <div className="form">
             <div className="form-id">
-              <span>id: </span>{" "}
-              <input type="text" defaultValue={board[0].id} readOnly />
+              <span>user_id: &nbsp;{board[0].user_id} </span>
+              <span>date: &nbsp;{board[0].w_date}</span>
             </div>
             <div className="form-title">
               <span>title: </span>{" "}
               <input type="text" defaultValue={board[0].title} readOnly />
             </div>
             <div className="form-content">
-              <span>content: </span>{" "}
               <textarea
                 rows={5}
                 defaultValue={board[0].content}
                 readOnly
               ></textarea>
             </div>
-            <div className="form-user">
-              <span>user_id: </span>{" "}
-              <input type="text" defaultValue={board[0].user_id} readOnly />
-            </div>
-            <div className="form-date">
-              <span>date: </span>{" "}
-              <input type="text" defaultValue={board[0].w_date} readOnly />
-            </div>
+
             <button className="form-btn" onClick={modify}>
               수정
             </button>
+          </div>
+
+          <div className="answer-txt">
+            <h3>댓글</h3>
+            <Answer id={board[0].id} />
           </div>
         </div>
       );

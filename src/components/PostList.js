@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
 import Pagenation from "./Pagenation";
+import queryString from "query-string";
 
 function PostList() {
   const [board, setBoard] = useState([]);
   const [allboard, setAllboard] = useState([]);
-  const [page, setPage] = useState(6);
+  const page = 6;
   const [current, setCurrent] = useState(1);
 
   useEffect(() => {
@@ -18,29 +19,59 @@ function PostList() {
   }, [current]);
 
   const getBoard = async () => {
-    const result = await axios.get(
-      "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/board"
-    );
-    //console.log(result.data);
+    const queryObj = queryString.parse(window.location.search);
+    const name = queryObj.query;
 
-    setAllboard(result.data);
-    setPage(6);
+    //console.log(name);
 
-    let postObj = [];
+    if (name) {
+      let result = [];
 
-    for (var i = (current - 1) * page; i < page * current; i++) {
-      // 0 - 6, 6 - 12
-      if (result.data[i]) {
-        postObj.push({
-          id: result.data[i].id,
-          title: result.data[i].title,
-          content: result.data[i].content,
-          user_id: result.data[i].user_id,
-          w_date: dayjs(result.data[i].w_date).format("YYYY-MM-DD"),
-        });
+      result = await axios.get(
+        "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/name/" +
+          name
+      );
+      //console.log(result.data);
+
+      setAllboard(result.data);
+      let postObj = [];
+
+      for (var i = (current - 1) * page; i < page * current; i++) {
+        // 0 - 6, 6 - 12
+        if (result.data[i]) {
+          postObj.push({
+            id: result.data[i].id,
+            title: result.data[i].title,
+            content: result.data[i].content,
+            user_id: result.data[i].user_id,
+            w_date: dayjs(result.data[i].w_date).format("YYYY-MM-DD"),
+          });
+        }
       }
+      setBoard(postObj);
+    } else {
+      result = await axios.get(
+        "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/board"
+      );
+      //console.log(result.data);
+
+      setAllboard(result.data);
+      let postObj = [];
+
+      for (var i = (current - 1) * page; i < page * current; i++) {
+        // 0 - 6, 6 - 12
+        if (result.data[i]) {
+          postObj.push({
+            id: result.data[i].id,
+            title: result.data[i].title,
+            content: result.data[i].content,
+            user_id: result.data[i].user_id,
+            w_date: dayjs(result.data[i].w_date).format("YYYY-MM-DD"),
+          });
+        }
+      }
+      setBoard(postObj);
     }
-    setBoard(postObj);
   };
 
   if (board) {

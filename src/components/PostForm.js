@@ -42,7 +42,10 @@ function PostForm() {
 
     console.log(boardObj);
 
-    const result = await axios.post("/board", boardObj);
+    const result = await axios.post(
+      "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/board",
+      boardObj
+    );
     console.log(result);
   };
 
@@ -50,25 +53,20 @@ function PostForm() {
     <div id="post-form">
       <div className="form">
         <div className="form-id">
-          <span>id: </span> <input type="text" value={id} readOnly />
+          <span>user_id: &nbsp;{userid} </span>
+          <span>date: &nbsp;{date}</span>
         </div>
         <div className="form-title">
           <span>title: </span>{" "}
           <input type="text" onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div className="form-content">
-          <span>content: </span>{" "}
           <textarea
             rows={5}
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
         </div>
-        <div className="form-user">
-          <span>user_id: </span> <input type="text" value={userid} readOnly />
-        </div>
-        <div className="form-date">
-          <span>date: </span> <input type="text" value={date} readOnly />
-        </div>
+
         <button className="form-btn" onClick={addBoard}>
           저장
         </button>
