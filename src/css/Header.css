@@ -47,6 +47,7 @@
   right: 40%;
   font-size: 1.1em;
   color: green;
+  cursor: pointer;
 }
 
 @media (max-width: 800px) {

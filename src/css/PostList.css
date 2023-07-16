@@ -38,6 +38,38 @@
   text-align: center;
 }
 
+.fixed {
+  width: 200px;
+  height: 70px;
+  border-radius: 50%;
+  line-height: 70px;
+  background-color: rgb(145, 207, 51);
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  z-index: 10;
+}
+.fixed input {
+  width: 45%;
+}
+
+.fixed > div {
+  width: 30px;
+  height: 20px;
+  line-height: 20px;
+  z-index: 11;
+  position: absolute;
+  top: 75%;
+  right: 40%;
+  font-size: 0.6em;
+  cursor: pointer;
+}
+
+.fixed > div:hover {
+  color: brown;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 550px) {
   #pagenation button:last-child {
     margin-left: 3%;
