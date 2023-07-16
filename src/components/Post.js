@@ -30,7 +30,9 @@ function Post(props) {
         <span>{props.id}</span>
       </div>
       <div className="post-title">
-        <span>{props.title}</span>
+        <span>
+          {props.title} ({an})
+        </span>
       </div>
       <div className="post-userid">
         <span>{props.user_id}</span>

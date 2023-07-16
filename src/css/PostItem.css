@@ -90,17 +90,3 @@
 #post-item .open-btn {
   position: absolute;
 }
-
-.answer-txt {
-  width: 90%;
-  margin-left: 5%;
-  height: auto;
-  margin-top: 50px;
-  background-color: rgb(101, 255, 175);
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.answer-txt h3 {
-  text-align: center;
-}
