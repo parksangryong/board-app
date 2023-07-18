@@ -15,7 +15,7 @@ function LogModi() {
     if (!password) {
       return alert("비밀번호를 입력하세요.");
     } else if (!name) {
-      return alert("이름을 입력하세요.");
+      return alert("소속을 선택하세요.");
     }
     alert("다시 로그인해주세요");
     window.location.href = "/";
@@ -50,11 +50,15 @@ function LogModi() {
       <div className="modi-div">
         <h2>회원정보 수정</h2>
         <div className="modi-id">
-          <span>ID : </span>
-          <input type="text" value={id} readOnly />
+          <span>이름 : </span>
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
         </div>
         <div className="modi-pass">
-          <span>password : </span>
+          <span>암호 : </span>
           <input
             type="password"
             value={password}
@@ -62,12 +66,11 @@ function LogModi() {
           />
         </div>
         <div className="modi-name">
-          <span>NickName : </span>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <span>소속 : </span>
+          <select onChange={(e) => setName(e.target.value)}>
+            <option value="직장인">직장인</option>
+            <option value="대학생">대학생</option>
+          </select>
         </div>
         <div className="modi-btn">
           <button onClick={submitbtn}>저장</button>

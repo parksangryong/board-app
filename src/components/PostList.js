@@ -14,12 +14,13 @@ function PostList() {
   const [current, setCurrent] = useState(1);
   const [opt, setOpt] = useState("");
   const [search, setSearch] = useState("");
+  const [area, setArea] = useState("");
 
   useEffect(() => {
     getBoard();
     //console.log(opt);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current, opt]);
+  }, [current, opt, area]);
 
   const getBoard = async () => {
     const queryObj = queryString.parse(window.location.search);
@@ -105,6 +106,31 @@ function PostList() {
         }
       }
       setBoard(postObj);
+    } else if (area) {
+      let result = [];
+
+      result = await axios.get(
+        "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/area/" +
+          area
+      );
+      //console.log(result.data);
+
+      setAllboard(result.data);
+      let postObj = [];
+
+      for (var i = (current - 1) * page; i < page * current; i++) {
+        // 0 - 6, 6 - 12
+        if (result.data[i]) {
+          postObj.push({
+            id: result.data[i].id,
+            title: result.data[i].title,
+            content: result.data[i].content,
+            user_id: result.data[i].user_id,
+            w_date: dayjs(result.data[i].w_date).format("YYYY-MM-DD"),
+          });
+        }
+      }
+      setBoard(postObj);
     } else {
       result = await axios.get(
         "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/board"
@@ -158,8 +184,20 @@ function PostList() {
     }
   };
 
+  const movecam = () => {
+    setArea("대학생");
+  };
+
+  const moveper = () => {
+    setArea("직장인");
+  };
+
   return (
     <div id="post-list">
+      <div className="area">
+        <div onClick={movecam}>대학생</div>
+        <div onClick={moveper}>직장인</div>
+      </div>
       {result}
       <Pagenation
         page={page}

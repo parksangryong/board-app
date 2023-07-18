@@ -71,8 +71,35 @@
   font-weight: bold;
 }
 
+.area {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+.area div {
+  display: inline-block;
+  height: 30px;
+  width: 50%;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.area div:hover {
+  font-weight: bold;
+}
+.area div:first-child {
+  background-color: rgb(121, 225, 121);
+}
+.area div:last-child {
+  background-color: rgb(76, 188, 76);
+}
+
 @media screen and (max-width: 550px) {
   #pagenation button:last-child {
     margin-left: 3%;
+  }
+  .area div {
+    font-size: 0.7em;
   }
 }

@@ -10,18 +10,18 @@ function NewLogin() {
   const [msg, setMsg] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState("직장인");
 
   const submitbtn = async () => {
     //console.log(id, password, name)
     const loginObj = { id: id, username: name, password: password };
 
     if (!id) {
-      return alert("ID를 입력하세요.");
+      return alert("이름을 입력하세요.");
     } else if (!password) {
       return alert("Password를 입력하세요.");
     } else if (!name) {
-      return alert("이름을 입력하세요.");
+      return alert("소속을 입력하세요.");
     } else {
       try {
         const result = await axios.post(
@@ -47,7 +47,7 @@ function NewLogin() {
       <div className="new-div">
         <h2>회원가입</h2>
         <div className="new-id">
-          <span>ID : </span>
+          <span>이름 : </span>
           <input
             type="text"
             value={id}
@@ -55,7 +55,7 @@ function NewLogin() {
           />
         </div>
         <div className="new-pass">
-          <span>password : </span>
+          <span>암호 : </span>
           <input
             type="password"
             value={password}
@@ -63,12 +63,11 @@ function NewLogin() {
           />
         </div>
         <div className="new-name">
-          <span>NickName : </span>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <span>소속 : </span>
+          <select onChange={(e) => setName(e.target.value)}>
+            <option value="직장인">직장인</option>
+            <option value="대학생">대학생</option>
+          </select>
         </div>
         <div className="new-btn">
           <button onClick={submitbtn}>회원가입</button>
