@@ -195,8 +195,12 @@ function PostList() {
   return (
     <div id="post-list">
       <div className="area">
-        <div onClick={movecam}>대학생</div>
-        <div onClick={moveper}>직장인</div>
+        <div onClick={movecam} className={area === "대학생" ? "active" : ""}>
+          대학생
+        </div>
+        <div onClick={moveper} className={area === "직장인" ? "active" : ""}>
+          직장인
+        </div>
       </div>
       {result}
       <Pagenation

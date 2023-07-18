@@ -59,7 +59,7 @@ function Login() {
       <div className="login-div">
         <h2>로그인</h2>
         <div className="login-id">
-          <span>ID : </span>
+          <span>이름 : </span>
           <input
             type="text"
             value={id}
@@ -67,7 +67,7 @@ function Login() {
           />
         </div>
         <div className="login-pass">
-          <span>password : </span>
+          <span>암호 : </span>
           <input
             type="password"
             value={password}

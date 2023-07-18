@@ -85,6 +85,11 @@
   cursor: pointer;
 }
 
+.active {
+  color: brown;
+  font-weight: bold;
+}
+
 .area div:hover {
   font-weight: bold;
 }
