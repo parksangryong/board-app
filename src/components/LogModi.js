@@ -32,17 +32,22 @@ function LogModi() {
   const deletebtn = async () => {
     if (!password) {
       return alert("비밀번호를 입력하세요.");
+    } else {
+      if (window.confirm("정말 삭제합니까?")) {
+        alert("회원이 삭제되었습니다");
+        window.location.href = "/";
+        dispatch(logout());
+
+        const result = await axios.delete(
+          "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/id",
+          { data: { id } }
+        );
+        console.log(result);
+      } else {
+        alert("취소합니다.");
+        return;
+      }
     }
-
-    alert("회원이 삭제되었습니다");
-    window.location.href = "/";
-    dispatch(logout());
-
-    const result = await axios.delete(
-      "https://port-0-todolist-node-kvmh2mljl31rz6.sel4.cloudtype.app/id",
-      { data: { id } }
-    );
-    console.log(result);
   };
 
   return (
